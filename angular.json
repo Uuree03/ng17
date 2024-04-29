@@ -3,18 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng17": {
+    "angular17": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
+          "style": "scss"
         }
       },
       "root": "",
@@ -24,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng17",
+            "outputPath": "dist/angular17",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng17:build:production"
+              "buildTarget": "angular17:build:production"
             },
             "development": {
-              "buildTarget": "ng17:build:development"
+              "buildTarget": "angular17:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ng17:build"
+            "buildTarget": "angular17:build"
           }
         },
         "test": {
@@ -101,8 +94,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "angular17:build:production",
+              "serveTarget": "angular17:serve:production"
+            },
+            "development": {
+              "buildTarget": "angular17:build:development",
+              "serveTarget": "angular17:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9be8caa8-9f3b-47b9-aff9-98f8cd4d6edd"
   }
 }

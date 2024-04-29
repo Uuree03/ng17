@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tsanachin-ski-club": {
+      "hosting": {
+        "angular17": [
+          "tsanachin-ski-club"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tsanachin-ski-club"
+  }
+}
