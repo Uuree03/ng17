@@ -3,11 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular17": {
+    "narg": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "inlineStyle": true,
+          "style": "scss",
+          "skipTests": true,
+          "standalone": false
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true,
+          "standalone": false
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "standalone": false
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -17,7 +43,16 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular17",
+            "allowedCommonJsDependencies": [
+              "quill",
+              "quill-delta",
+              "moment",
+              "luxon",
+              "pako",
+              "core-js",
+              "downloadjs"
+            ],
+            "outputPath": "dist/narg",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,8 +74,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -62,10 +97,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular17:build:production"
+              "buildTarget": "narg:build:production"
             },
             "development": {
-              "buildTarget": "angular17:build:development"
+              "buildTarget": "narg:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +108,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular17:build"
+            "buildTarget": "narg:build"
           }
         },
         "test": {
@@ -102,12 +137,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "angular17:build:production",
-              "serveTarget": "angular17:serve:production"
+              "buildTarget": "narg:build:production",
+              "serveTarget": "narg:serve:production"
             },
             "development": {
-              "buildTarget": "angular17:build:development",
-              "serveTarget": "angular17:serve:development"
+              "buildTarget": "narg:build:development",
+              "serveTarget": "narg:serve:development"
             }
           },
           "defaultConfiguration": "production"
@@ -116,6 +151,6 @@
     }
   },
   "cli": {
-    "analytics": "9be8caa8-9f3b-47b9-aff9-98f8cd4d6edd"
+    "analytics": "fb644f9b-bac8-4282-8640-f8a9a7c7c857"
   }
 }

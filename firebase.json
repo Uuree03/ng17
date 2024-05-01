@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "angular17",
+      "target": "narg",
       "source": ".",
       "frameworksBackend": {}
     }

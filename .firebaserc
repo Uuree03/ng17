@@ -1,14 +1,14 @@
 {
   "targets": {
-    "tsanachin-ski-club": {
+    "nargil-net": {
       "hosting": {
-        "angular17": [
-          "tsanachin-ski-club"
+        "narg": [
+          "nargil-net"
         ]
       }
     }
   },
   "projects": {
-    "default": "tsanachin-ski-club"
+    "default": "nargil-net"
   }
 }
